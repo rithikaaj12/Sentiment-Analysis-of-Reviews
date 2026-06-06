@@ -54,3 +54,148 @@ The proposed system automates the process of sentiment analysis by using NLP and
 - Scikit-learn
 - NLTK
 - Matplotlib
+##  User Identification
+
+### Primary User
+- Customer
+- Business Analyst
+- Product Manager
+- Marketing Team
+- Administrator
+
+### User Roles
+
+#### Customer
+- Provides reviews and feedback.
+- Shares opinions about products or services.
+
+#### Business Analyst
+- Analyzes customer sentiment trends.
+- Generates insights from review data.
+
+#### Product Manager
+- Uses sentiment reports to improve products.
+- Identifies customer satisfaction levels.
+
+#### Administrator
+- Manages datasets and system operations.
+- Monitors model performance and updates.
+
+---
+
+##  Module Identification
+
+### Module 1: Data Collection
+**Purpose:** Collect customer reviews from datasets or online sources.
+
+**Input:** Customer reviews
+
+**Output:** Raw review dataset
+
+### Module 2: Data Preprocessing
+**Purpose:** Clean and prepare textual data.
+
+**Input:** Raw reviews
+
+**Output:** Processed review text
+
+### Module 3: Feature Extraction
+**Purpose:** Convert text into numerical features.
+
+**Input:** Cleaned text
+
+**Output:** TF-IDF or Bag-of-Words vectors
+
+### Module 4: Model Training
+**Purpose:** Train machine learning models for sentiment classification.
+
+**Input:** Feature vectors
+
+**Output:** Trained sentiment analysis model
+
+### Module 5: Sentiment Prediction
+**Purpose:** Predict sentiment of new reviews.
+
+**Input:** User review
+
+**Output:** Positive, Negative, or Neutral sentiment
+
+### Module 6: Performance Evaluation
+**Purpose:** Measure model accuracy and effectiveness.
+
+**Input:** Test dataset
+
+**Output:** Accuracy, Precision, Recall, F1-Score
+
+### Module 7: Visualization & Reporting
+**Purpose:** Present sentiment analysis results.
+
+**Input:** Predicted sentiments
+
+**Output:** Charts, graphs, and reports
+
+---
+
+##  Use Case Diagram:
+
+### Actors
+- Customer
+- Administrator
+- Business Analyst
+
+### Use Cases
+1. Submit Review
+2. Collect Review Data
+3. Preprocess Review Data
+4. Extract Features
+5. Train Model
+6. Predict Sentiment
+7. Generate Reports
+8. View Analysis Results
+9. Manage Dataset
+
+### Use Case Diagram (Text Representation)
+
+```text
+                +------------------+
+                |    Customer      |
+                +------------------+
+                         |
+                         |
+                  Submit Review
+                         |
+                         v
++------------------------------------------------+
+|      Sentiment Analysis of Reviews System      |
++------------------------------------------------+
+| - Collect Review Data                          |
+| - Preprocess Review Data                       |
+| - Extract Features                             |
+| - Train Model                                  |
+| - Predict Sentiment                            |
+| - Generate Reports                             |
++------------------------------------------------+
+          ^                          ^
+          |                          |
+          |                          |
++------------------+      +------------------+
+| Administrator    |      | Business Analyst |
++------------------+      +------------------+
+| Manage Dataset   |      | View Results     |
+| Train Model      |      | Generate Reports |
++------------------+      +------------------+
+```
+
+### Use Case Description
+
+| Use Case | Actor | Description |
+|-----------|--------|-------------|
+| Submit Review | Customer | User submits product/service review |
+| Collect Data | System | Stores review data |
+| Preprocess Data | System | Cleans and prepares text |
+| Extract Features | System | Converts text to numerical features |
+| Train Model | Administrator | Trains sentiment classifier |
+| Predict Sentiment | System | Classifies review sentiment |
+| View Results | Business Analyst | Analyzes sentiment outcomes |
+| Generate Reports | Business Analyst | Creates reports and visualizations |
+| Manage Dataset | Administrator | Updates and manages review data |
