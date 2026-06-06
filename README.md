@@ -83,58 +83,15 @@ The proposed system automates the process of sentiment analysis by using NLP and
 
 ---
 
-##  Module Identification
+##  Modules
 
-### Module 1: Data Collection
-**Purpose:** Collect customer reviews from datasets or online sources.
-
-**Input:** Customer reviews
-
-**Output:** Raw review dataset
-
-### Module 2: Data Preprocessing
-**Purpose:** Clean and prepare textual data.
-
-**Input:** Raw reviews
-
-**Output:** Processed review text
-
-### Module 3: Feature Extraction
-**Purpose:** Convert text into numerical features.
-
-**Input:** Cleaned text
-
-**Output:** TF-IDF or Bag-of-Words vectors
-
-### Module 4: Model Training
-**Purpose:** Train machine learning models for sentiment classification.
-
-**Input:** Feature vectors
-
-**Output:** Trained sentiment analysis model
-
-### Module 5: Sentiment Prediction
-**Purpose:** Predict sentiment of new reviews.
-
-**Input:** User review
-
-**Output:** Positive, Negative, or Neutral sentiment
-
-### Module 6: Performance Evaluation
-**Purpose:** Measure model accuracy and effectiveness.
-
-**Input:** Test dataset
-
-**Output:** Accuracy, Precision, Recall, F1-Score
-
-### Module 7: Visualization & Reporting
-**Purpose:** Present sentiment analysis results.
-
-**Input:** Predicted sentiments
-
-**Output:** Charts, graphs, and reports
-
----
+- Data Collection
+- Data Preprocessing
+- Feature Extraction
+- Model Training
+- Sentiment Prediction
+- Performance Evaluation
+- Result Visualization
 
 ##  Use Case Diagram:
 
@@ -186,16 +143,11 @@ The proposed system automates the process of sentiment analysis by using NLP and
 +------------------+      +------------------+
 ```
 
-### Use Case Description
+##  Use Case Description
 
-| Use Case | Actor | Description |
-|-----------|--------|-------------|
-| Submit Review | Customer | User submits product/service review |
-| Collect Data | System | Stores review data |
-| Preprocess Data | System | Cleans and prepares text |
-| Extract Features | System | Converts text to numerical features |
-| Train Model | Administrator | Trains sentiment classifier |
-| Predict Sentiment | System | Classifies review sentiment |
-| View Results | Business Analyst | Analyzes sentiment outcomes |
-| Generate Reports | Business Analyst | Creates reports and visualizations |
-| Manage Dataset | Administrator | Updates and manages review data |
+- **Submit Review** – Customer submits a review.
+- **Manage Dataset** – Administrator manages review data.
+- **Train Model** – Administrator trains the model.
+- **Predict Sentiment** – System predicts sentiment.
+- **View Results** – Analyst views results.
+- **Generate Reports** – Analyst generates reports.
