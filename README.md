@@ -151,3 +151,26 @@ The proposed system automates the process of sentiment analysis by using NLP and
 - **Predict Sentiment** – System predicts sentiment.
 - **View Results** – Analyst views results.
 - **Generate Reports** – Analyst generates reports.
+  ##  ER Diagram:
+
+```text
+      (User_ID)
+           |
+     +-----------+
+     |   USER    |
+     +-----------+
+           |
+        Reviews
+           |
+     +-----------+
+     |  REVIEW   |
+     +-----------+
+           |
+      Has Sentiment
+           |
+     +-------------+
+     | SENTIMENT   |
+     +-------------+
+           |
+        (Type)
+```
