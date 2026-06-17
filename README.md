@@ -174,3 +174,112 @@ The proposed system automates the process of sentiment analysis by using NLP and
            |
         (Type)
 ```
+##  Development Progress
+
+### UI Wireframe Design
+Designed low-fidelity wireframes for the Login Page, Registration Page, Dashboard, Review Submission Form, and Sentiment Result Screen. The wireframes were created to visualize user interaction flow and define the layout before development. Focused on creating a simple and intuitive interface for sentiment prediction and review management.
+
+**Tools Used:** Figma, Draw.io
+
+---
+
+### Login & Dashboard UI Design
+Designed responsive UI screens for user authentication and dashboard visualization. The dashboard was planned to display review statistics, sentiment distribution, total reviews analyzed, and prediction results. Emphasis was placed on usability and accessibility.
+
+**Technologies Used:** HTML5, CSS3, Bootstrap
+
+---
+
+### Navigation & Form Design
+Created navigation components and user-friendly forms for login, registration, and review submission. Designed form validation rules and input fields to ensure accurate data collection and smooth navigation throughout the application.
+
+**Technologies Used:** HTML5, CSS3, JavaScript
+
+---
+
+### Design Review
+Reviewed the overall user interface design and application workflow. Evaluated component placement, navigation flow, consistency, and user experience. Modified layouts and structures based on project requirements and feedback.
+
+**Tools Used:** Figma, GitHub
+
+---
+
+### Frontend Environment Setup
+Set up the frontend development environment and organized the project directory structure. Installed required dependencies and configured the development workspace for efficient implementation.
+
+**Technologies Used:** VS Code, Git, GitHub
+
+---
+
+### Login Page Development
+Developed the login page with input validation and authentication interface. Implemented user-friendly forms and error handling mechanisms to improve the user experience.
+
+**Technologies Used:** HTML5, CSS3, JavaScript
+
+---
+
+### Registration Page Development
+Implemented the registration page to allow users to create accounts and access the sentiment analysis system. Added form validation and data verification functionalities.
+
+**Technologies Used:** HTML5, CSS3, JavaScript
+
+---
+
+### Dashboard Development
+Developed a dashboard to display sentiment analysis outputs and review statistics. Designed sections for Positive, Negative, and Neutral sentiment counts, graphical representations, and prediction summaries.
+
+**Technologies Used:** HTML5, CSS3, JavaScript, Chart.js
+
+---
+
+### CRUD Form Development
+Implemented Create, Read, Update, and Delete operations for review management. Developed forms to add new reviews, edit existing reviews, view stored reviews, and remove unnecessary records.
+
+**Technologies Used:** Python, Flask, SQLite/MySQL
+
+---
+
+### Data Collection & Dataset Preparation
+Collected customer review datasets from publicly available sources. Organized and prepared the dataset for preprocessing and model training.
+
+**Libraries Used:** Pandas, NumPy
+
+---
+
+### Data Preprocessing
+Performed text cleaning operations including lowercasing, stop-word removal, punctuation removal, tokenization, and stemming. Prepared the textual data for feature extraction and machine learning.
+
+**Libraries Used:** NLTK, Pandas, Regular Expressions (re)
+
+---
+
+### Feature Extraction
+Converted review text into numerical representations using TF-IDF and Bag-of-Words techniques to enable machine learning model training.
+
+**Libraries Used:** Scikit-learn
+
+---
+
+### Model Training & Sentiment Classification
+Trained sentiment classification models using machine learning algorithms. Compared different models and selected the best-performing model for sentiment prediction.
+
+**Algorithms Used:**
+- Naive Bayes
+- Logistic Regression
+- Support Vector Machine (SVM)
+
+**Libraries Used:** Scikit-learn
+
+---
+
+### Model Evaluation
+Evaluated model performance using standard metrics such as Accuracy, Precision, Recall, and F1-Score. Analyzed prediction results and optimized model performance.
+
+**Libraries Used:** Scikit-learn, Matplotlib
+
+---
+
+### Result Visualization
+Created visual representations of sentiment analysis results using charts and graphs. Displayed sentiment distribution and model performance metrics for easier interpretation.
+
+**Libraries Used:** Matplotlib, Seaborn
