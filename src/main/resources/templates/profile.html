@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-app">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile — SentiConsult</title>
+  <meta name="description" content="Manage your SentiConsult profile." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><span class="logo-badge"><i class="bi bi-chat-heart-fill"></i></span> SentiConsult</div>
+      <div class="sidebar-heading">Main</div>
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html"><i class="bi bi-grid-1x2"></i> Dashboard</a></li>
+        <li><a href="submit-review.html"><i class="bi bi-pencil-square"></i> Submit Review</a></li>
+        <li><a href="review-history.html"><i class="bi bi-clock-history"></i> Review History</a></li>
+      </ul>
+      <div class="sidebar-heading">Account</div>
+      <ul class="sidebar-nav">
+        <li><a href="profile.html" class="active"><i class="bi bi-person"></i> Profile</a></li>
+        <li><a href="settings.html"><i class="bi bi-gear"></i> Settings</a></li>
+        <li><a href="admin.html"><i class="bi bi-shield-lock"></i> Admin Panel</a></li>
+      </ul>
+      <div class="sidebar-footer"><a href="login.html" class="d-flex align-items-center gap-2 text-decoration-none" style="color:#cbd5e1"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
+    </aside>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="main-wrap">
+      <header class="topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="icon-btn d-lg-none" id="sidebarToggle"><i class="bi bi-list"></i></button>
+          <h5 class="mb-0 fw-semibold d-none d-md-block">My Profile</h5>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <button class="icon-btn"><i class="bi bi-bell"></i><span class="dot"></span></button>
+          <span class="avatar">JD</span>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Profile</li>
+          </ol>
+        </nav>
+
+        <div class="row g-3">
+          <!-- Profile card -->
+          <div class="col-lg-4">
+            <div class="card p-4 text-center card-hover">
+              <span class="avatar avatar-lg mx-auto">JD</span>
+              <h5 class="fw-bold mt-3 mb-0">Jane Doe</h5>
+              <p class="text-muted mb-2">@janedoe</p>
+              <span class="badge-sentiment badge-neutral mx-auto mb-3">Analyst</span>
+              <div class="row text-center border-top pt-3">
+                <div class="col"><div class="fw-bold fs-5">124</div><small class="text-muted">Reviews</small></div>
+                <div class="col border-start"><div class="fw-bold fs-5">4.3</div><small class="text-muted">Avg Rating</small></div>
+                <div class="col border-start"><div class="fw-bold fs-5">86%</div><small class="text-muted">Positive</small></div>
+              </div>
+              <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-soft"><i class="bi bi-camera me-1"></i>Change Photo</button>
+                <a href="review-history.html" class="btn btn-outline-brand"><i class="bi bi-clock-history me-1"></i>View My Reviews</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Edit forms -->
+          <div class="col-lg-8">
+            <div class="card p-4 mb-3">
+              <h6 class="fw-semibold mb-3"><i class="bi bi-person-gear me-2 text-primary-brand"></i>Edit Profile</h6>
+              <form onsubmit="event.preventDefault(); showToast('Profile updated successfully!','success')">
+                <div class="row g-3">
+                  <div class="col-md-6"><label class="form-label fw-500">Full Name</label><input type="text" class="form-control" value="Jane Doe" /></div>
+                  <div class="col-md-6"><label class="form-label fw-500">Username</label><input type="text" class="form-control" value="janedoe" /></div>
+                  <div class="col-md-6"><label class="form-label fw-500">Email</label><input type="email" class="form-control" value="jane@mail.com" /></div>
+                  <div class="col-md-6"><label class="form-label fw-500">Phone</label><input type="tel" class="form-control" value="+91 90000 00000" /></div>
+                  <div class="col-12"><label class="form-label fw-500">Bio</label><textarea class="form-control" rows="3">Public health analyst reviewing E-Consultation feedback.</textarea></div>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                  <button type="submit" class="btn btn-gradient"><i class="bi bi-check-lg me-1"></i>Save Changes</button>
+                  <button type="reset" class="btn btn-soft">Cancel</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="card p-4">
+              <h6 class="fw-semibold mb-3"><i class="bi bi-shield-lock me-2 text-primary-brand"></i>Change Password</h6>
+              <form onsubmit="event.preventDefault(); showToast('Password changed successfully!','success')">
+                <div class="row g-3">
+                  <div class="col-md-4"><label class="form-label fw-500">Current</label><input type="password" class="form-control" placeholder="••••••" /></div>
+                  <div class="col-md-4"><label class="form-label fw-500">New</label><input type="password" class="form-control" placeholder="••••••" /></div>
+                  <div class="col-md-4"><label class="form-label fw-500">Confirm</label><input type="password" class="form-control" placeholder="••••••" /></div>
+                </div>
+                <button type="submit" class="btn btn-gradient mt-3"><i class="bi bi-key me-1"></i>Update Password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="text-center text-muted small py-4 px-3 border-top">&copy; 2026 SentiConsult</footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

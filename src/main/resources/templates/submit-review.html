@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-app">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Review — SentiConsult</title>
+  <meta name="description" content="Submit a consultation review for sentiment analysis." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><span class="logo-badge"><i class="bi bi-chat-heart-fill"></i></span> SentiConsult</div>
+      <div class="sidebar-heading">Main</div>
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html"><i class="bi bi-grid-1x2"></i> Dashboard</a></li>
+        <li><a href="submit-review.html" class="active"><i class="bi bi-pencil-square"></i> Submit Review</a></li>
+        <li><a href="review-history.html"><i class="bi bi-clock-history"></i> Review History</a></li>
+      </ul>
+      <div class="sidebar-heading">Account</div>
+      <ul class="sidebar-nav">
+        <li><a href="profile.html"><i class="bi bi-person"></i> Profile</a></li>
+        <li><a href="settings.html"><i class="bi bi-gear"></i> Settings</a></li>
+        <li><a href="admin.html"><i class="bi bi-shield-lock"></i> Admin Panel</a></li>
+      </ul>
+      <div class="sidebar-footer"><a href="login.html" class="d-flex align-items-center gap-2 text-decoration-none" style="color:#cbd5e1"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
+    </aside>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="main-wrap">
+      <header class="topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="icon-btn d-lg-none" id="sidebarToggle"><i class="bi bi-list"></i></button>
+          <h5 class="mb-0 fw-semibold d-none d-md-block">Submit Review</h5>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <button class="icon-btn"><i class="bi bi-bell"></i><span class="dot"></span></button>
+          <div class="dropdown">
+            <button class="btn d-flex align-items-center gap-2 border-0 p-1" data-bs-toggle="dropdown">
+              <span class="avatar">JD</span><i class="bi bi-chevron-down small text-muted"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Profile</a></li>
+              <li><a class="dropdown-item text-danger" href="login.html"><i class="bi bi-box-arrow-left me-2"></i>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Submit Review</li>
+          </ol>
+        </nav>
+        <div class="mb-4">
+          <h3 class="fw-bold mb-1">Submit a Review</h3>
+          <p class="text-muted mb-0">Enter consultation feedback and get an instant sentiment analysis.</p>
+        </div>
+
+        <div class="row g-3">
+          <!-- Form -->
+          <div class="col-lg-7">
+            <div class="card p-4">
+              <form id="reviewForm">
+                <label class="form-label fw-500">Your Review</label>
+                <textarea class="form-control" id="reviewText" rows="7" maxlength="500"
+                  placeholder="Write your feedback about the E-Consultation experience..." oninput="onType()"></textarea>
+                <div class="d-flex justify-content-between mt-2">
+                  <small class="text-muted">Be specific and honest.</small>
+                  <small class="text-muted"><span id="charCount">0</span>/500</small>
+                </div>
+
+                <label class="form-label fw-500 mt-4 d-block">Rating</label>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="star-input">
+                    <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+                  </div>
+                  <input type="hidden" id="rating" value="0" />
+                  <span class="text-muted small" id="ratingLabel">No rating</span>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                  <button type="submit" class="btn btn-gradient"><i class="bi bi-cpu me-2"></i>Analyze &amp; Submit</button>
+                  <button type="reset" class="btn btn-soft" onclick="resetForm()"><i class="bi bi-arrow-counterclockwise me-2"></i>Reset</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Live preview + results -->
+          <div class="col-lg-5">
+            <div class="card p-4 mb-3">
+              <h6 class="fw-semibold mb-3"><i class="bi bi-eye me-2 text-primary-brand"></i>Live Preview</h6>
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="avatar" style="width:38px;height:38px;font-size:.85rem">JD</span>
+                <div><div class="fw-500 small">Jane Doe</div><small class="text-muted stars" id="previewStars">No rating</small></div>
+              </div>
+              <p class="text-muted mb-0" id="previewText" style="min-height:60px">Your review will appear here as you type…</p>
+            </div>
+
+            <div class="card p-4">
+              <h6 class="fw-semibold mb-3"><i class="bi bi-graph-up me-2 text-primary-brand"></i>Sentiment Result</h6>
+              <div id="resultEmpty" class="empty-state py-4">
+                <i class="bi bi-clipboard-data"></i>
+                <p class="text-muted mt-2 mb-0 small">Submit a review to see the predicted sentiment and confidence.</p>
+              </div>
+              <div id="resultBox" class="d-none text-center">
+                <div id="sentimentBadge" class="mb-3"></div>
+                <div class="confidence-ring mb-2"><canvas id="confChart"></canvas>
+                  <div style="position:absolute;inset:0;display:grid;place-items:center">
+                    <div><div class="fw-bold fs-4" id="confValue">0%</div><small class="text-muted">Confidence</small></div>
+                  </div>
+                </div>
+                <p class="text-muted small mb-0" id="resultNote"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="text-center text-muted small py-4 px-3 border-top">&copy; 2026 SentiConsult</footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    let confChart = null;
+    function onType() {
+      const t = document.getElementById("reviewText").value;
+      document.getElementById("charCount").textContent = t.length;
+      document.getElementById("previewText").textContent = t.trim() || "Your review will appear here as you type…";
+    }
+    function resetForm() {
+      document.getElementById("charCount").textContent = "0";
+      document.getElementById("previewText").textContent = "Your review will appear here as you type…";
+      document.getElementById("ratingLabel").textContent = "No rating";
+      document.getElementById("previewStars").textContent = "No rating";
+      document.querySelectorAll(".star-input i").forEach((s) => (s.className = "bi bi-star"));
+      document.getElementById("rating").value = 0;
+      document.getElementById("resultEmpty").classList.remove("d-none");
+      document.getElementById("resultBox").classList.add("d-none");
+    }
+    // rating label sync
+    document.querySelector(".star-input").addEventListener("ratingchange", (e) => {
+      const n = e.detail;
+      const stars = "\u2605".repeat(n) + "\u2606".repeat(5 - n);
+      document.getElementById("ratingLabel").textContent = n + " / 5";
+      document.getElementById("previewStars").textContent = stars;
+    });
+
+    // naive keyword-based sentiment demo
+    function predict(text, rating) {
+      const pos = ["good","great","excellent","easy","love","responsive","helpful","fast","happy","best","amazing","smooth"];
+      const neg = ["bad","slow","crash","poor","worst","difficult","hate","delay","problem","error","unresponsive","confusing"];
+      const t = text.toLowerCase();
+      let score = 0;
+      pos.forEach((w) => { if (t.includes(w)) score += 1; });
+      neg.forEach((w) => { if (t.includes(w)) score -= 1; });
+      if (rating) score += (rating - 3);
+      let label, color, conf;
+      if (score > 0) { label = "Positive"; color = "#10b981"; conf = Math.min(95, 70 + score * 6); }
+      else if (score < 0) { label = "Negative"; color = "#ef4444"; conf = Math.min(95, 70 + Math.abs(score) * 6); }
+      else { label = "Neutral"; color = "#f59e0b"; conf = 68; }
+      return { label, color, conf };
+    }
+
+    document.getElementById("reviewForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const text = document.getElementById("reviewText").value.trim();
+      const rating = parseInt(document.getElementById("rating").value) || 0;
+      if (!text) { showToast("Please write a review first.", "warning"); return; }
+
+      const btn = e.submitter;
+      btn.disabled = true; btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analyzing…';
+      setTimeout(() => {
+        btn.disabled = false; btn.innerHTML = '<i class="bi bi-cpu me-2"></i>Analyze &amp; Submit';
+        const r = predict(text, rating);
+        document.getElementById("resultEmpty").classList.add("d-none");
+        document.getElementById("resultBox").classList.remove("d-none");
+        const cls = r.label === "Positive" ? "badge-positive" : r.label === "Negative" ? "badge-negative" : "badge-neutral";
+        const icon = r.label === "Positive" ? "bi-emoji-smile" : r.label === "Negative" ? "bi-emoji-frown" : "bi-emoji-neutral";
+        document.getElementById("sentimentBadge").innerHTML =
+          `<span class="badge-sentiment ${cls}" style="font-size:1rem;padding:.6rem 1.2rem"><i class="bi ${icon}"></i>${r.label}</span>`;
+        document.getElementById("confValue").textContent = r.conf + "%";
+        document.getElementById("resultNote").textContent = "Predicted from review text" + (rating ? " and your rating." : ".");
+        if (confChart) confChart.destroy();
+        confChart = new Chart(document.getElementById("confChart"), {
+          type: "doughnut",
+          data: { datasets: [{ data: [r.conf, 100 - r.conf], backgroundColor: [r.color, "#eef2f7"], borderWidth: 0 }] },
+          options: { cutout: "78%", plugins: { legend: { display: false }, tooltip: { enabled: false } } },
+        });
+        showToast("Review analyzed and submitted!", "success");
+      }, 900);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-app">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — SentiConsult</title>
+  <meta name="description" content="Manage your SentiConsult account settings." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><span class="logo-badge"><i class="bi bi-chat-heart-fill"></i></span> SentiConsult</div>
+      <div class="sidebar-heading">Main</div>
+      <ul class="sidebar-nav">
+        <li><a href="dashboard.html"><i class="bi bi-grid-1x2"></i> Dashboard</a></li>
+        <li><a href="submit-review.html"><i class="bi bi-pencil-square"></i> Submit Review</a></li>
+        <li><a href="review-history.html"><i class="bi bi-clock-history"></i> Review History</a></li>
+      </ul>
+      <div class="sidebar-heading">Account</div>
+      <ul class="sidebar-nav">
+        <li><a href="profile.html"><i class="bi bi-person"></i> Profile</a></li>
+        <li><a href="settings.html" class="active"><i class="bi bi-gear"></i> Settings</a></li>
+        <li><a href="admin.html"><i class="bi bi-shield-lock"></i> Admin Panel</a></li>
+      </ul>
+      <div class="sidebar-footer"><a href="login.html" class="d-flex align-items-center gap-2 text-decoration-none" style="color:#cbd5e1"><i class="bi bi-box-arrow-left"></i> Logout</a></div>
+    </aside>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="main-wrap">
+      <header class="topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button class="icon-btn d-lg-none" id="sidebarToggle"><i class="bi bi-list"></i></button>
+          <h5 class="mb-0 fw-semibold d-none d-md-block">Settings</h5>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <button class="icon-btn"><i class="bi bi-bell"></i><span class="dot"></span></button>
+          <span class="avatar">JD</span>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Settings</li>
+          </ol>
+        </nav>
+        <div class="mb-4"><h3 class="fw-bold mb-1">Settings</h3><p class="text-muted mb-0">Customize your account, appearance, and notifications.</p></div>
+
+        <div class="row g-3">
+          <!-- Tabs -->
+          <div class="col-lg-3">
+            <div class="card p-2">
+              <div class="nav flex-column nav-pills" role="tablist">
+                <button class="nav-link active text-start rounded-3 mb-1" data-bs-toggle="pill" data-bs-target="#tabTheme"><i class="bi bi-palette me-2"></i>Theme</button>
+                <button class="nav-link text-start rounded-3 mb-1" data-bs-toggle="pill" data-bs-target="#tabNotif"><i class="bi bi-bell me-2"></i>Notifications</button>
+                <button class="nav-link text-start rounded-3 mb-1" data-bs-toggle="pill" data-bs-target="#tabAccount"><i class="bi bi-person me-2"></i>Account</button>
+                <button class="nav-link text-start rounded-3" data-bs-toggle="pill" data-bs-target="#tabSecurity"><i class="bi bi-shield-lock me-2"></i>Security</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panels -->
+          <div class="col-lg-9">
+            <div class="tab-content">
+              <!-- Theme -->
+              <div class="tab-pane fade show active" id="tabTheme">
+                <div class="card p-4">
+                  <h6 class="fw-semibold mb-3">Theme Settings</h6>
+                  <label class="form-label fw-500">Accent Color</label>
+                  <div class="d-flex gap-2 mb-4">
+                    <span role="button" class="rounded-circle" style="width:32px;height:32px;background:#4f46e5;outline:3px solid #c7d2fe"></span>
+                    <span role="button" class="rounded-circle" style="width:32px;height:32px;background:#06b6d4"></span>
+                    <span role="button" class="rounded-circle" style="width:32px;height:32px;background:#10b981"></span>
+                    <span role="button" class="rounded-circle" style="width:32px;height:32px;background:#f59e0b"></span>
+                    <span role="button" class="rounded-circle" style="width:32px;height:32px;background:#ef4444"></span>
+                  </div>
+                  <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" id="darkMode"><label class="form-check-label" for="darkMode">Dark mode</label></div>
+                  <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" id="compact"><label class="form-check-label" for="compact">Compact layout</label></div>
+                  <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="anim" checked><label class="form-check-label" for="anim">Enable animations</label></div>
+                  <button class="btn btn-gradient mt-3 align-self-start" onclick="showToast('Theme saved!','success')">Save Theme</button>
+                </div>
+              </div>
+              <!-- Notifications -->
+              <div class="tab-pane fade" id="tabNotif">
+                <div class="card p-4">
+                  <h6 class="fw-semibold mb-3">Notification Settings</h6>
+                  <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" checked><label class="form-check-label">Email notifications</label></div>
+                  <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" checked><label class="form-check-label">Alert on negative reviews</label></div>
+                  <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox"><label class="form-check-label">Weekly summary report</label></div>
+                  <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked><label class="form-check-label">Push notifications</label></div>
+                  <button class="btn btn-gradient mt-3 align-self-start" onclick="showToast('Notification preferences saved!','success')">Save Preferences</button>
+                </div>
+              </div>
+              <!-- Account -->
+              <div class="tab-pane fade" id="tabAccount">
+                <div class="card p-4">
+                  <h6 class="fw-semibold mb-3">Account Settings</h6>
+                  <div class="row g-3">
+                    <div class="col-md-6"><label class="form-label fw-500">Display Name</label><input class="form-control" value="Jane Doe"></div>
+                    <div class="col-md-6"><label class="form-label fw-500">Language</label><select class="form-select"><option>English</option><option>Hindi</option><option>Tamil</option></select></div>
+                    <div class="col-md-6"><label class="form-label fw-500">Time Zone</label><select class="form-select"><option>IST (GMT+5:30)</option><option>UTC</option></select></div>
+                    <div class="col-md-6"><label class="form-label fw-500">Date Format</label><select class="form-select"><option>DD-MM-YYYY</option><option>MM-DD-YYYY</option></select></div>
+                  </div>
+                  <hr class="my-4" />
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div><div class="fw-500 text-danger">Delete Account</div><small class="text-muted">Permanently remove your account and data.</small></div>
+                    <button class="btn btn-sm" style="background:var(--grad-red);color:#fff" onclick="showToast('This is a demo. Account not deleted.','warning')">Delete</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Security -->
+              <div class="tab-pane fade" id="tabSecurity">
+                <div class="card p-4">
+                  <h6 class="fw-semibold mb-3">Security Settings</h6>
+                  <div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox"><label class="form-check-label">Two-factor authentication (2FA)</label></div>
+                  <div class="form-check form-switch mb-3"><input class="form-check-input" type="checkbox" checked><label class="form-check-label">Login alerts for new devices</label></div>
+                  <label class="form-label fw-500">Active Sessions</label>
+                  <div class="d-flex justify-content-between align-items-center border rounded-3 p-3 mb-2">
+                    <div class="d-flex align-items-center gap-2"><i class="bi bi-laptop fs-5 text-primary-brand"></i><div><div class="fw-500 small">Chrome · Windows</div><small class="text-muted">Current session</small></div></div>
+                    <span class="badge-sentiment badge-positive">Active</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center border rounded-3 p-3">
+                    <div class="d-flex align-items-center gap-2"><i class="bi bi-phone fs-5 text-muted"></i><div><div class="fw-500 small">Safari · iPhone</div><small class="text-muted">2 days ago</small></div></div>
+                    <button class="btn btn-sm btn-soft" onclick="showToast('Session revoked.','danger')">Revoke</button>
+                  </div>
+                  <button class="btn btn-gradient mt-3 align-self-start" onclick="showToast('Security settings saved!','success')">Save Settings</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="text-center text-muted small py-4 px-3 border-top">&copy; 2026 SentiConsult</footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
